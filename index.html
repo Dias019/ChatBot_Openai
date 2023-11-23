@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div style="display: block;">
+
+        <div style="margin: 0%;">
+            <p>MoodEase</p>
+            <p>Esse chatbot tem o intuito de ajudar pessoas com depressão, ou que não estão se sentindo bem.</p>
+            <p>Reforçando que a mellhor ajuda que se pode obter, é procurando um profissional na área</p>
+            <p>Aqui está um número para você ligar que pode te ajudar com essa situação: 188</p>
+        </div>
+
+        <div style="padding: 13%;">
+            <img src="" alt="" style="justify-content: center; text-align: center; align-items: center;">
+            <p style="text-align: center;">Seja bem vindo ao MoodEase, como podemos te ajudar?</p>
+            
+            <div id="resposta" style="justify-content: center; text-align: center;"></div>
+        </div>
+
+        <div style="align-items: center; justify-content: center; text-align: center; height: auto; margin-bottom: 0%; padding: 3.5%; position: relative;">
+            <div>
+                <form action="">
+                    
+                </form>
+                <input type="text" placeholder="Como você está se sentindo hoje?"   style="padding-right: 40px;"   id="barra">
+                <button onclick="enviarMensagem()" class="btn btn-white btn-animate" style="position: absolute; top: 61px; right: 60px;" >Enviar</button>
+                <div id="resposta"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function enviarMensagem() {
+            const mensagem = document.getElementById('barra').value;
+            fetch('http://127.0.0.1:5000/responder', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ mensagem: mensagem }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Resposta completa:', data);
+                document.getElementById('resposta').innerText = data.resposta_openai;
+            })
+            .catch(error => console.error('Erro:', error));
+        }
+    </script>
+    
+</body>
+</html>

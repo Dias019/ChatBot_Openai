@@ -1,0 +1,90 @@
+#barra{
+    tab-size: 4;
+    color-scheme: light;
+    -webkit-font-smoothing: antialiased;
+    border: 0 solid rgb(227, 217, 226);
+    box-sizing: border-box;
+    color: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    appearance: none;
+    border-color: #0505ef;
+    border-radius: 0;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin: 0;
+    width: 100%;
+    resize: none;
+    border-width: 0;
+    background-color: transparent;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: .75rem;
+    padding-right: 2.5rem;
+    max-height: 200px;
+    height: 44px;
+    overflow-y: hidden;
+    border: 2px solid #000; /* Adiciona uma borda preta de 2px */
+    padding: 5px; /* Adiciona um espaço interno à barra */
+    font-size: 16px; /* Define o tamanho da fonte */
+    border-radius: 8px; /* Arredonda as bordas em 5 pixels */
+}
+
+
+.text-box {
+    margin-left: 44vw;
+   margin-top: 42vh;
+}
+
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    position: absolute;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+    background-color: #010101;
+    color: #ffffff;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInBottom 5s ease-out;
+    animation-fill-mode: backwards;
+}
